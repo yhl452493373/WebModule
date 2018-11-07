@@ -1,0 +1,16 @@
+spring:
+  resources:
+    static-locations: classpath:/static/
+  freemarker:
+    cache: false
+    template-loader-path: classpath:/templates
+    enabled: true
+  profiles:
+    active:
+    - redis
+    - single-datasource
+server:
+  port: 8888
+logging:
+  level:
+    com.h3w.webmodule: info
