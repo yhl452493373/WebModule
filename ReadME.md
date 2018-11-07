@@ -40,7 +40,7 @@ target/generated-sources/archetype目录下执行clean install
       </includes>
     </fileSet>
 ```
-在archetype-resources/src/main/java/\_\_artifactId__\目录下新建config,mapper,service目录,同时将该目录下的MyCodeGenerator.java
+在archetype-resources/src/main/java/__artifactId__目录下新建config,mapper,service目录,同时将该目录下的MyCodeGenerator.java
 中的
 ```java
     import ${package}.generator.CodeGenerator;
