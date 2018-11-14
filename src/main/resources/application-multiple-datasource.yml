@@ -2,7 +2,7 @@
 #如果要启用,则在application.yml中spring.profiles.active添加一个multiple-datasource列表对象
 datasource:
   #存放Config.java的配置文件的包
-  config-package: com.h3w.config
+  config-package: ${package}.${artifactId}.config
   datasource-properties-list:
   - name: mysql
     primary: true
@@ -10,14 +10,14 @@ datasource:
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
-    type-aliases-package: com.h3w.entity
-    mapper-package: com.h3w.mapper
+    type-aliases-package: ${package}.${artifactId}.entity
+    mapper-package: ${package}.${artifactId}.mapper
     mapper-locations: classpath:/mapper
   - name: test
     url: jdbc:mysql://localhost:3306/test?useUnicode=true&useSSL=false&characterEncoding=utf8
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
-    type-aliases-package: com.h3w.entity
-    mapper-package: com.h3w.mapper
+    type-aliases-package: ${package}.${artifactId}.entity
+    mapper-package: ${package}.${artifactId}.mapper
     mapper-locations: classpath:mapper

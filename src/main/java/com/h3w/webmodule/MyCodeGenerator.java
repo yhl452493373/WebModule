@@ -1,9 +1,9 @@
 package com.h3w.webmodule;
 
 
-import com.h3w.generator.CodeGenerator;
-import com.h3w.generator.CodeGeneratorConfig;
-import com.h3w.generator.DataSourceGeneratorConfig;
+import com.github.yhl452493373.generator.CodeGenerator;
+import com.github.yhl452493373.generator.CodeGeneratorConfig;
+import com.github.yhl452493373.generator.DataSourceGeneratorConfig;
 
 import java.util.HashMap;
 import java.util.Map;

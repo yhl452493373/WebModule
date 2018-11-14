@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan({
-        "com.h3w.config",
+        "com.github.yhl452493373.config",
         "com.h3w.webmodule.config",
         "com.h3w.webmodule.mapper",
         "com.h3w.webmodule.service",

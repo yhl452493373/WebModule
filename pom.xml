@@ -5,18 +5,12 @@
 
     <groupId>com.h3w</groupId>
     <artifactId>webmodule</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <name>Web Module</name>
-    <description>Web Module project for Spring Boot</description>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.0.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+    <description>Web Module project for Spring Boot.Depended on code-generator</description>
+    <url>https://github.com/yhl452493373/WebModule</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,9 +20,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.h3w</groupId>
+            <groupId>com.github.yhl452493373</groupId>
             <artifactId>code-generator</artifactId>
-            <version>1.1-SNAPSHOT</version>
+            <version>1.1</version>
         </dependency>
     </dependencies>
 
@@ -38,17 +32,28 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <encoding>utf-8</encoding>
-                    <includeEmptyDirs>true</includeEmptyDirs>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
+    <scm>
+        <url>https://github.com/yhl452493373/WebModule</url>
+        <connection>git@github.com:yhl452493373/WebModule.git</connection>
+        <developerConnection>https://github.com/yhl452493373/WebModule</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>YangHuanglin</name>
+            <email>yanghuanglin@qq.com</email>
+            <url>https://github.com/yhl452493373</url>
+        </developer>
+    </developers>
 </project>
