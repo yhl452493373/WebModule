@@ -1,6 +1,7 @@
 # IDEA中添加archetype方法
 ![avatar](ReadME.png)
 ---
+# 自行修改编译方法
 webmodule目录下执行archetype:create-from-project
 target/generated-sources/archetype目录下执行clean install
 
