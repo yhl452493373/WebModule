@@ -13,27 +13,27 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class MainController {
     //TODO 调用service的全局对象,代码生成后取消这里的注释,并引入相关类
-//    ServiceConfig serviceConfig = ServiceConfig.serviceConfig;
+//    ServiceConfig service = ServiceConfig.serviceConfig;
 
     @GetMapping("/captcha")
     public void captcha(HttpServletRequest request, HttpServletResponse response) {
         //TODO 生成验证码代码生成后取消这里的注释
-//        serviceConfig.shiroCaptcha.generate(request, response);
+//        service.shiroCaptcha.generate(request, response);
     }
 
     @GetMapping("/index")
     public String index(ModelMap modelMap) {
         modelMap.addAttribute("message", "欢迎来到首页");
-        return "/index";
+        return "index";
     }
 
     @RequestMapping("/login")
     public String login(HttpServletRequest request, HttpServletResponse response) {
         if (request.getMethod().equalsIgnoreCase("get")) {
-            return "/login";
+            return "login";
         } else {
             //TODO 验证验证码是否正确,代码生成后取消此处注释
-//            serviceConfig.shiroCaptcha.validate(request,response,request.getParameter("captcha"));
+//            service.shiroCaptcha.validate(request,response,request.getParameter("captcha"));
             UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken();
             usernamePasswordToken.setUsername("admin");
             usernamePasswordToken.setPassword("admin".toCharArray());
