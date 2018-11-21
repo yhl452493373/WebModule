@@ -1,3 +1,4 @@
+# 当前最新版本是1.1.2，请在添加archetype的时候做对应修改
 # IDEA中添加archetype方法
 ![avatar](ReadME.png)
 ---
