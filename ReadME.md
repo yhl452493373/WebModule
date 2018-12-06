@@ -1,4 +1,4 @@
-# 当前最新版本是1.1.8，请在添加archetype的时候做对应修改.当前版本开始,和code-generator的版本同步
+# 当前最新版本是1.1.10，请在添加archetype的时候做对应修改.当前版本开始,和code-generator的版本同步
 # IDEA中添加archetype方法
 ![avatar](ReadME.png)
 ---
