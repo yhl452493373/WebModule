@@ -25,20 +25,15 @@ public class MyCodeGenerator {
         CodeGenerator.dataSourceCodeGenerate(dsgc);
         CodeGeneratorConfig cgc = new CodeGeneratorConfig(
                 "psm",
-                new String[]{"employee"},
-                MyCodeGenerator.class.getPackage().getName()
-        );
-        cgc.setFileOverride(true);
-        cgc.setEnableCache(true);
-        cgc.setEnableRedis(true);
+                MyCodeGenerator.class.getPackage().getName(),
+                "employee"
+        ).setFileOverride(true).setEnableCache(true).setEnableRedis(true);
         CodeGenerator.baseCodeGenerate(cgc);
     }
 
     private static void multipleDataSource() {
         DataSourceGeneratorConfig dsgc = new DataSourceGeneratorConfig();
-        dsgc.setMultiple(true);
-        dsgc.setFileOverride(true);
-        dsgc.setCacheEnabled(true);
+        dsgc.setMultiple(true).setFileOverride(true).setCacheEnabled(true);
         CodeGenerator.dataSourceCodeGenerate(dsgc);
         Map<String, String[]> dataSourceMap = new HashMap<>();
         dataSourceMap.put("psm", new String[]{"employee", "hidden_danger"});
@@ -46,11 +41,9 @@ public class MyCodeGenerator {
         dataSourceMap.keySet().forEach((key) -> {
             CodeGeneratorConfig cgc = new CodeGeneratorConfig(
                     key,
-                    dataSourceMap.get(key),
-                    MyCodeGenerator.class.getPackage().getName());
-            cgc.setFileOverride(true);
-            cgc.setEnableCache(true);
-            cgc.setEnableRedis(true);
+                    MyCodeGenerator.class.getPackage().getName(),
+                    dataSourceMap.get(key));
+            cgc.setFileOverride(true).setEnableCache(true).setEnableRedis(true);
             cgc.setPackageController(cgc.getPackageController() + "." + key);
             cgc.setPackageEntity(cgc.getPackageEntity() + "." + key);
             cgc.setPackageMapper(cgc.getPackageMapper() + "." + key);
