@@ -27,7 +27,6 @@ public class MainController {
     @GetMapping("/index")
     public String index(ModelMap modelMap) {
         modelMap.addAttribute("message", "欢迎来到首页");
-        modelMap.addAttribute("time",new Date());
         return "/index";
     }
 

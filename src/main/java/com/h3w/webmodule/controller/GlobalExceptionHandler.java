@@ -16,10 +16,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.PrintStream;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -34,19 +31,17 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
     public void defaultHandler(HttpServletRequest request, HttpServletResponse response, Exception exception) {
-        //todo 记录异常信息
         //打印出错误信息到控制台
-        String exceptionString = getExceptionAllInformation(exception);
-        logger.error(exceptionString);
+        logger.error("",exception);
         JSONResult jsonResult = JSONResult.init();
         if (exception instanceof MaxUploadSizeExceededException) {
             MaxUploadSizeExceededException me = (MaxUploadSizeExceededException) exception;
-            jsonResult.error("上传文件过大:" + exception.getMessage()).code(HttpServletResponse.SC_REQUEST_ENTITY_TOO_LARGE).detail(getExceptionAllInformation(me));
+            jsonResult.error("上传文件过大:" + exception.toString()).code(HttpServletResponse.SC_REQUEST_ENTITY_TOO_LARGE).detail(getExceptionAllInformation(me));
         } else if (exception instanceof AuthorizationException) {
             AuthorizationException ae = (AuthorizationException) exception;
-            jsonResult.error("无权访问:" + exception.getMessage()).code(HttpServletResponse.SC_UNAUTHORIZED).detail(getExceptionAllInformation(ae));
+            jsonResult.error("无权访问:" + exception.toString()).code(HttpServletResponse.SC_UNAUTHORIZED).detail(getExceptionAllInformation(ae));
         } else {
-            jsonResult.error("内部错误:" + exception.getMessage()).code(HttpServletResponse.SC_INTERNAL_SERVER_ERROR).detail(exceptionString);
+            jsonResult.error("内部错误:" + exception.toString()).code(HttpServletResponse.SC_INTERNAL_SERVER_ERROR).detail(getExceptionAllInformation(exception));
         }
         OutputStreamWriter writer = null;
         try {
@@ -83,20 +78,12 @@ public class GlobalExceptionHandler {
     /**
      * 获取异常的详细信息
      *
-     * @param ex 异常
+     * @param t 异常
      * @return 详细信息字符串
      */
-    private static String getExceptionAllInformation(Exception ex) {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        PrintStream pout = new PrintStream(out);
-        ex.printStackTrace(pout);
-        String ret = new String(out.toByteArray());
-        pout.close();
-        try {
-            out.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return ret;
+    private static String getExceptionAllInformation(Throwable t) {
+        StringWriter sw = new StringWriter();
+        t.printStackTrace(new PrintWriter(sw, true));
+        return sw.getBuffer().toString();
     }
 }
