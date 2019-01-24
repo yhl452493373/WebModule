@@ -10,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
         "com.h3w.webmodule.config",
         "com.h3w.webmodule.mapper",
         "com.h3w.webmodule.service",
+        "com.h3w.webmodule.aspect",
         "com.h3w.webmodule.controller"})
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class Application {

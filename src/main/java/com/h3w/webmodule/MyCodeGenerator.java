@@ -26,7 +26,7 @@ public class MyCodeGenerator {
         CodeGeneratorConfig cgc = new CodeGeneratorConfig(
                 "psm",
                 MyCodeGenerator.class.getPackage().getName(),
-                "employee"
+                new String[]{"employee"}
         ).setFileOverride(true).setEnableCache(true).setEnableRedis(true);
         CodeGenerator.baseCodeGenerate(cgc);
     }

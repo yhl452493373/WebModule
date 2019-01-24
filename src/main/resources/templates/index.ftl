@@ -6,6 +6,9 @@
 </head>
 <body>
 <p>
+    ${time}
+</p>
+<p>
 ${message}
 </p>
 <@shiro.user>
