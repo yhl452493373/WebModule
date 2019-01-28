@@ -5,7 +5,7 @@ spring:
   #指定fastjson中日期格式
   fastjson:
     date-format: 'yyyy-MM-dd HH:mm:ss'
-  #关闭freemaker缓存
+  #关闭freemarker缓存
   freemarker:
     cache: false
   #设定需要激活的配置文件.application-redis.yml为redis的配置文件,application-shiro-captcha.yml为验证码的配置文件.根据需要开启
